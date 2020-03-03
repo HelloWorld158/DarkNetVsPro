@@ -1,0 +1,363 @@
+﻿  art.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  attention.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\attention.c(68,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\attention.c(78,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\attention.c(108,37): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\attention.c(109,37): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\attention.c(163,74): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\attention.c(208,50): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\attention.c(209,50): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\attention.c(211,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 1 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\attention.c(211,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\attention.c(211,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 9 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\attention.c(211,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\attention.c(213,33): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\attention.c(129,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\attention.c(182,15): warning C4101: “im”: 未引用的局部变量
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\attention.c(241,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\attention.c(329,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+  captcha.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\captcha.c(29,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\captcha.c(82,41): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\captcha.c(83,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 5 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\captcha.c(83,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\captcha.c(36,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  cifar.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(5,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(24,43): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(25,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 1 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(25,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(25,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 7 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(25,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(27,33): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(17,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(50,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(69,38): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(77,43): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(78,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 1 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(78,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(78,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 7 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(78,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(80,33): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(62,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(67,1): warning C4305: “初始化”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(105,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(133,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(174,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\cifar.c(198,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+  classifier.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Data\darknetAll\darknetVsPro\darknet\utils.h(17,29): warning C4273: “what_time_is_it_now”: dll 链接不一致
+D:\Data\darknetAll\darknetVsPro\darknet\darknet.h(752,20): message : 参见“what_time_is_it_now”的前一个定义
+D:\Data\darknetAll\darknetVsPro\darknet\utils.h(20,35): warning C4273: “free_ptrs”: dll 链接不一致
+D:\Data\darknetAll\darknetVsPro\darknet\darknet.h(801,18): message : 参见“free_ptrs”的前一个定义
+D:\Data\darknetAll\darknetVsPro\darknet\utils.h(29,66): warning C4273: “find_replace”: dll 链接不一致
+D:\Data\darknetAll\darknetVsPro\darknet\darknet.h(800,18): message : 参见“find_replace”的前一个定义
+D:\Data\darknetAll\darknetVsPro\darknet\utils.h(32,20): warning C4273: “strip”: dll 链接不一致
+D:\Data\darknetAll\darknetVsPro\darknet\darknet.h(803,18): message : 参见“strip”的前一个定义
+D:\Data\darknetAll\darknetVsPro\darknet\utils.h(35,22): warning C4273: “fgetl”: dll 链接不一致
+D:\Data\darknetAll\darknetVsPro\darknet\darknet.h(802,19): message : 参见“fgetl”的前一个定义
+D:\Data\darknetAll\darknetVsPro\darknet\utils.h(48,26): warning C4273: “sec”: dll 链接不一致
+D:\Data\darknetAll\darknetVsPro\darknet\darknet.h(804,19): message : 参见“sec”的前一个定义
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(17,25): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(32,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(42,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(74,37): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(75,37): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(113,42): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(114,42): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(147,41): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(148,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 1 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(148,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(148,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 7 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(148,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(151,33): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(102,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(178,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(243,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(312,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(370,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(429,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(517,1): warning C4305: “初始化”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(518,1): warning C4305: “初始化”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(623,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(657,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(697,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\classifier.c(767,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+  coco.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\coco.c(16,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\coco.c(77,41): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\coco.c(23,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\coco.c(108,31): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\coco.c(109,31): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\coco.c(101,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\coco.c(102,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\coco.c(103,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\coco.c(104,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\coco.c(133,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\coco.c(153,1): warning C4305: “初始化”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\coco.c(217,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\coco.c(256,56): warning C4244: “函数”: 从“int”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\coco.c(238,1): warning C4305: “初始化”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\coco.c(301,1): warning C4305: “初始化”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\coco.c(339,60): warning C4305: “函数”: 从“double”到“float”截断
+  darknet.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\darknet.c(65,31): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\darknet.c(66,31): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\darknet.c(68,39): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\darknet.c(69,39): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\darknet.c(70,39): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\darknet.c(74,37): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\darknet.c(75,46): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\darknet.c(151,24): warning C4305: “函数”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\darknet.c(461,79): warning C4244: “函数”: 从“double”转换到“int”，可能丢失数据
+  detector.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(12,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(18,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(29,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(126,41): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(128,35): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(129,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 1 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(129,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(177,31): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(178,31): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(170,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(171,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(172,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(173,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(202,31): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(203,31): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(195,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(196,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(197,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(198,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(223,31): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(224,31): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(216,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(217,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(218,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(219,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(249,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(288,1): warning C4305: “初始化”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(289,1): warning C4305: “初始化”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(379,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(419,1): warning C4305: “初始化”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(420,1): warning C4305: “初始化”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(494,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(506,1): warning C4305: “初始化”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(508,1): warning C4305: “初始化”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(575,1): warning C4305: “初始化”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\detector.c(808,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  dice.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\dice.c(7,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\dice.c(33,41): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\dice.c(34,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 5 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\dice.c(34,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\dice.c(36,51): warning C4305: “*=”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\dice.c(18,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\dice.c(51,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\dice.c(70,26): warning C4047: “函数”:“network *”与“network **”的间接级别不同
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\dice.c(70,26): warning C4024: “load_weights”: 形参和实参 1 的类型不同
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\dice.c(72,27): warning C4047: “函数”:“network *”与“network **”的间接级别不同
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\dice.c(72,27): warning C4024: “set_batch_network”: 形参和实参 1 的类型不同
+  go.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(12,1): warning C4028: 形参 2 与声明不同
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(12,1): warning C4028: 形参 3 与声明不同
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(12,1): warning C4028: 形参 4 与声明不同
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(12,1): warning C4028: 形参 5 与声明不同
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(136,42): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(168,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(210,43): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(211,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 1 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(211,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(211,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 7 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(211,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(213,33): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(226,27): warning C4477: “sprintf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 3 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(226,27): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(189,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(445,27): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(493,117): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(590,60): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(596,35): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(597,40): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(760,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(832,68): warning C4305: “函数”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(843,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(1128,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(1255,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(1269,1): warning C4305: “初始化”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(1386,56): warning C4305: “函数”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\go.c(1359,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  instance-segmenter.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\instance-segmenter.c(48,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\instance-segmenter.c(58,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\instance-segmenter.c(150,41): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\instance-segmenter.c(151,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 1 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\instance-segmenter.c(151,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\instance-segmenter.c(151,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 7 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\instance-segmenter.c(151,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\instance-segmenter.c(154,33): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\instance-segmenter.c(111,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\instance-segmenter.c(270,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  lsd.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(392,36): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(393,32): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(396,31): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(389,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(390,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(407,48): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(520,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(532,25): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(648,44): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(565,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(676,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(695,25): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(759,79): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(842,44): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(873,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(891,24): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(945,37): warning C4305: “=”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(946,36): warning C4305: “=”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(968,51): warning C4305: “函数”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(973,60): warning C4305: “函数”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(1012,44): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\lsd.c(1013,44): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+  nightmare.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\nightmare.c(12,26): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\nightmare.c(89,38): warning C4305: “函数”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\nightmare.c(307,57): warning C4305: “函数”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\nightmare.c(310,64): warning C4305: “函数”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\nightmare.c(311,61): warning C4305: “函数”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\nightmare.c(325,47): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\nightmare.c(326,36): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\nightmare.c(328,52): warning C4244: “函数”: 从“float”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\nightmare.c(328,64): warning C4244: “函数”: 从“float”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\nightmare.c(383,75): warning C4244: “函数”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\nightmare.c(407,58): warning C4244: “函数”: 从“double”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\nightmare.c(407,79): warning C4244: “函数”: 从“double”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\nightmare.c(407,90): warning C4244: “函数”: 从“float”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\nightmare.c(407,101): warning C4244: “函数”: 从“float”转换到“int”，可能丢失数据
+  regressor.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\regressor.c(19,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\regressor.c(29,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\regressor.c(53,37): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\regressor.c(54,37): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\regressor.c(95,41): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\regressor.c(96,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 1 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\regressor.c(96,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\regressor.c(96,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 7 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\regressor.c(96,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\regressor.c(99,33): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\regressor.c(73,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\regressor.c(216,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  rnn.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\rnn.c(159,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\rnn.c(207,41): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\rnn.c(181,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\rnn.c(263,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\rnn.c(429,35): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\rnn.c(397,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\rnn.c(408,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\rnn.c(467,35): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\rnn.c(446,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\rnn.c(457,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\rnn.c(482,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\rnn.c(495,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\rnn.c(528,56): warning C4305: “函数”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\rnn.c(529,59): warning C4244: “函数”: 从“time_t”转换到“int”，可能丢失数据
+  rnn_vid.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  segmenter.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\segmenter.c(19,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\segmenter.c(29,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\segmenter.c(110,41): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\segmenter.c(111,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 1 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\segmenter.c(111,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\segmenter.c(111,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 7 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\segmenter.c(111,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\segmenter.c(114,33): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\segmenter.c(77,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\segmenter.c(230,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  super.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\super.c(7,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\super.c(47,41): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\super.c(14,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  swag.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\swag.c(12,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\swag.c(62,41): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\swag.c(22,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  tag.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\tag.c(5,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\tag.c(56,41): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\tag.c(57,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 1 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\tag.c(57,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\tag.c(57,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 7 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\tag.c(57,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\tag.c(60,33): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\tag.c(45,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  正在生成代码...
+  正在编译...
+  voxel.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\voxel.c(43,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\voxel.c(49,26): warning C4047: “函数”:“network *”与“network **”的间接级别不同
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\voxel.c(49,26): warning C4024: “load_weights”: 形参和实参 1 的类型不同
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\voxel.c(86,41): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\voxel.c(53,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  writing.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\writing.c(6,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\writing.c(65,41): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\writing.c(66,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 1 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\writing.c(66,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\writing.c(66,16): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 7 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\writing.c(66,16): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\writing.c(70,27): warning C4477: “sprintf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 3 拥有了类型“size_t”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\writing.c(70,27): message : 请考虑在格式字符串中使用“%zd”
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\writing.c(74,32): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\writing.c(37,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  yolo.c
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(9,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(62,41): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(16,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(88,31): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(89,31): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(81,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(82,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(83,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(84,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(108,31): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(109,31): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(101,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(102,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(103,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(104,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(122,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(145,1): warning C4305: “初始化”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(206,18): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(227,1): warning C4305: “初始化”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(300,1): warning C4305: “初始化”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(297,13): warning C4101: “time”: 未引用的局部变量
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(376,60): warning C4305: “函数”: 从“double”到“float”截断
+  正在生成代码...
+  darknetVsPro.vcxproj -> D:\Data\darknetAll\darknetVsPro\x64\Debug\darknetVsPro.exe
