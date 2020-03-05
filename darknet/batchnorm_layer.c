@@ -188,7 +188,7 @@ void push_batchnorm_layer(layer l)
 
 void forward_batchnorm_layer_gpu(layer l, network net)
 {
-    if(l.type == BATCHNORM) copy_gpu(l.outputs*l.batch, net.input_gpu, 1, l.output_gpu, 1);    
+    if(l.type == BATCHNORM) simple_copy_ongpu(l.outputs*l.batch, net.input_gpu,  l.output_gpu);    
     //CV/// copy_gpu(l.outputs * l.batch, l.output_gpu, 1, l.x_gpu, 1);‘≠ ºŒª÷√
     if (net.train) {
 #ifdef CUDNN

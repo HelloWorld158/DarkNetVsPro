@@ -52,6 +52,7 @@ void axpy_gpu(int N, float ALPHA, float * X, int INCX, float * Y, int INCY);
 void axpy_gpu_offset(int N, float ALPHA, float * X, int OFFX, int INCX, float * Y, int OFFY, int INCY);
 void copy_gpu(int N, float * X, int INCX, float * Y, int INCY);
 void copy_gpu_offset(int N, float * X, int OFFX, int INCX, float * Y, int OFFY, int INCY);
+void simple_copy_ongpu(int size, float* src, float* dst);
 void add_gpu(int N, float ALPHA, float * X, int INCX);
 void supp_gpu(int N, float ALPHA, float * X, int INCX);
 void mask_gpu(int N, float * X, float mask_num, float * mask, float val);

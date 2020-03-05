@@ -109,14 +109,14 @@ void backward_shortcut_layer(const layer l, network net)
 #ifdef GPU
 void forward_shortcut_layer_gpu(const layer l, network net)
 {
-    copy_gpu(l.outputs*l.batch, net.input_gpu, 1, l.output_gpu, 1);
+    simple_copy_ongpu(l.outputs*l.batch, net.input_gpu, l.output_gpu);
 #ifdef MEMORYDEBUG
     printf("Connect Index:%d,", l.index);
     printf("Output:0x%x,index Output:0x%x,inputgpu:0x%x\n", (int)l.output_gpu, (int)net.layers[l.index].output_gpu, (int)net.input_gpu);
     printf("output: %d,input :%d,index output:%d\n", l.outputs, net.inputs, net.layers[l.index].outputs);
 #endif
     shortcut_gpu(l.batch, l.w, l.h, l.c, net.layers[l.index].output_gpu, l.out_w, l.out_h, l.out_c, l.alpha, l.beta, l.output_gpu);
-    activate_array_gpu(l.output_gpu, l.outputs*l.batch, l.activation);
+    activate_array_ongpu(l.output_gpu, l.outputs*l.batch, l.activation);
 }
 
 void backward_shortcut_layer_gpu(const layer l, network net)

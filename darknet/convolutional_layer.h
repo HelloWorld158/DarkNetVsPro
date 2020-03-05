@@ -16,7 +16,7 @@
 	typedef layer convolutional_layer;
 	///注意添加方法的时候要同时添加Train或者predict，如不满足要求，
 	//请修改CONVOLUTION_METHOD GetConvolutionTrainMethod();CONVOLUTION_METHOD GetConvolutionPredictMethod();
-	//这俩个函数
+	//这俩个函数	
 	typedef enum 
 	{
 		FLOAT16_PREDICT,
@@ -36,6 +36,7 @@
 
 	void forward_convolutional_layer_gpu(convolutional_layer layer, network net);
 	void forward_convolutional_layer_gpu_predict_Float16(convolutional_layer layer, network net);
+	void forward_convolutional_layer_gpu_predict_Float32(convolutional_layer layer, network net);
 	void backward_convolutional_layer_gpu(convolutional_layer layer, network net);
 	void update_convolutional_layer_gpu(convolutional_layer layer, update_args a);
 
@@ -70,6 +71,8 @@ extern "C" {
 	convolutional_layer make_convolutional_layer_CV_PREDICT_FLOAT16(CLARE_CONV_PARAM);
 	void MakeHalfMaxSize(int iGiveSize, int iOutSize);
 
+	void FuseScaleBNClayer(network* net, int ilayers);
+
 	void resize_convolutional_layer(convolutional_layer* layer, int w, int h);
 	
 	image* visualize_convolutional_layer(convolutional_layer layer, char* window, image* prev_weights);
@@ -91,6 +94,16 @@ extern "C" {
 	void SetConvolutionTrainMethod(CONVOLUTION_METHOD method);
 	void SetConvolutionPredictMethod(CONVOLUTION_METHOD method);
 	void OutPutGPUMemory(float* data, int iSize, char* txt);
+
+	typedef struct CONVPROPERTY
+	{
+		int iConvProPertySize;
+#ifdef GPU
+		cudnnTensorDescriptor_t biasTensor;
+		cudnnActivationDescriptor_t actv;
+#endif
+	}CONVPROP;
+
 
 	void DealGPUArrayBuffer_CV(convolutional_layer l);
 	void DealWeightBuffer(convolutional_layer l);

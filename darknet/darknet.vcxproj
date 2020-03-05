@@ -209,6 +209,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="region_layer.h" />
     <ClInclude Include="reorg_layer.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="rnn_layer.h" />
     <ClInclude Include="route_layer.h" />
     <ClInclude Include="shortcut_layer.h" />
@@ -309,6 +310,9 @@
     <CudaCompile Include="maxpool_layer_kernels.cu">
       <FileType>Document</FileType>
     </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="darknet.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

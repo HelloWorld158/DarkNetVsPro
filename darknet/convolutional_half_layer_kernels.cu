@@ -40,7 +40,7 @@ __global__ void cuda_f32_to_f16(float* input_f32, size_t size, half* output_f16)
 }
 
 void cuda_convert_f32_to_f16(float* input_f32, size_t size, half* output_f16) {
-    cuda_f32_to_f16 << < cuda_gridsize(size), BLOCK >> > (input_f32, size, (half*)output_f16);
+    cuda_f32_to_f16 << < cuda_gridsize(size), BLOCK,0,get_cuda_stream() >> > (input_f32, size, (half*)output_f16);
     check_error(cudaPeekAtLastError());
 }
 
@@ -52,7 +52,7 @@ __global__ void cuda_f16_to_f32(half* input_f16, size_t size, float* output_f32)
 }
 
 void cuda_convert_f16_to_f32(half* input_f16, size_t size, float* output_f32) {
-    cuda_f16_to_f32 << < cuda_gridsize(size), BLOCK >> > ((half*)input_f16, size, output_f32);
+    cuda_f16_to_f32 << < cuda_gridsize(size), BLOCK,0,get_cuda_stream() >> > ((half*)input_f16, size, output_f32);
     check_error(cudaPeekAtLastError());
 }
 void DealWeightBuffer(convolutional_layer l)
@@ -79,7 +79,6 @@ void DealWeightBuffer(convolutional_layer l)
 }
 void forward_convolutional_layer_gpu_predict_Float16(convolutional_layer l, network net)
 {
-    fill_gpu(l.outputs * l.batch, 0, l.output_gpu, 1);
     if (l.binary) {
         binarize_weights_gpu(l.weights_gpu, l.n, l.c / l.groups * l.size * l.size, l.binary_weights_gpu);
         swap_binary(&l);
@@ -184,7 +183,7 @@ void forward_convolutional_layer_gpu_predict_Float16(convolutional_layer l, netw
     }
 
 
-    activate_array_gpu(l.output_gpu, l.outputs * l.batch, l.activation);
+    activate_array_ongpu(l.output_gpu, l.outputs * l.batch, l.activation);
     //if(l.dot > 0) dot_error_gpu(l);
     if (l.binary || l.xnor) swap_binary(&l);
 }

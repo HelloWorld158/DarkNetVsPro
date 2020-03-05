@@ -13,7 +13,7 @@
 #include "xnor_layer.h"
 #endif
 CONVOLUTION_METHOD trainMethod = FLOAT32_TRAIN;
-CONVOLUTION_METHOD predictMethod = FLOAT16_PREDICT;
+CONVOLUTION_METHOD predictMethod = FLOAT32_PREDICT;
 void swap_binary(convolutional_layer *l)
 {
     float *swap = l->weights;
@@ -26,7 +26,39 @@ void swap_binary(convolutional_layer *l)
     l->binary_weights_gpu = swap;
 #endif
 }
+void FuseScaleBNClayer(network* net, int ilayers)
+{
+    layer* l = &(net->layers[ilayers]);
+    if (l->batch_normalize)
+    {
+        int f;
+        for (f = 0; f < l->n; ++f)
+        {
+            l->biases[f] = l->biases[f] - (double)l->scales[f] * l->rolling_mean[f] / (sqrt((double)l->rolling_variance[f] + .000001));
 
+            const size_t filter_size = l->size * l->size * l->c / l->groups;
+            int i;
+            for (i = 0; i < filter_size; ++i) {
+                int w_index = f * filter_size + i;
+
+                l->weights[w_index] = (double)l->weights[w_index] * l->scales[f] / (sqrt((double)l->rolling_variance[f] + .000001));
+            }
+        }       
+        l->batch_normalize = 0;
+    }
+    free(l->scales);            l->scales = NULL;
+    free(l->mean);              l->mean = NULL;
+    free(l->variance);          l->variance = NULL;
+    free(l->rolling_mean);      l->rolling_mean = NULL;
+    free(l->rolling_variance);  l->rolling_variance = NULL;   
+#ifdef GPU
+    cuda_free(l->scales_gpu);           l->scales_gpu = NULL;
+    cuda_free(l->mean_gpu);             l->mean_gpu = NULL;
+    cuda_free(l->variance_gpu);         l->variance_gpu = NULL;   
+    cuda_free(l->rolling_mean_gpu);     l->rolling_mean_gpu = NULL;
+    cuda_free(l->rolling_variance_gpu); l->rolling_variance_gpu = NULL;   
+#endif
+}
 void binarize_weights(float *weights, int n, int size, float *binary)
 {
     int i, f;
@@ -144,6 +176,24 @@ static size_t get_workspace_size(layer l){
 #endif
     return (size_t)l.out_h*l.out_w*l.size*l.size*l.c/l.groups*sizeof(float);
 }
+size_t get_workspace_size32(layer l) {
+#ifdef CUDNN
+    if (gpu_index >= 0) {
+        size_t most = 0;
+        size_t s = 0;
+        cudnnStatus_t stat = cudnnGetConvolutionForwardWorkspaceSize(cudnn_handle(),
+            l.srcTensorDesc,
+            l.weightDesc,
+            l.convDesc,
+            l.dstTensorDesc,
+            l.fw_algo,
+            &s);
+        if (s > most) most = s;
+        return most;
+    }
+#endif
+    return (size_t)l.out_h * l.out_w * l.size * l.size * l.c / l.groups * sizeof(float);
+}
 
 #ifdef GPU
 #ifdef CUDNN
@@ -155,6 +205,7 @@ void cudnn_convolutional_setup(layer *l)
     stat = cudnnSetTensor4dDescriptor(l->srcTensorDesc, CUDNN_TENSOR_NCHW, CUDNN_DATA_FLOAT, l->batch, l->c, l->h, l->w);
     stat = cudnnSetTensor4dDescriptor(l->dstTensorDesc, CUDNN_TENSOR_NCHW, CUDNN_DATA_FLOAT, l->batch, l->out_c, l->out_h, l->out_w);
     stat = cudnnSetTensor4dDescriptor(l->normTensorDesc, CUDNN_TENSOR_NCHW, CUDNN_DATA_FLOAT, 1, l->out_c, 1, 1);
+
 
     stat = cudnnSetFilter4dDescriptor(l->dweightDesc, CUDNN_DATA_FLOAT, CUDNN_TENSOR_NCHW, l->n, l->c/l->groups, l->size, l->size);
     stat = cudnnSetFilter4dDescriptor(l->weightDesc, CUDNN_DATA_FLOAT, CUDNN_TENSOR_NCHW, l->n, l->c/l->groups, l->size, l->size);
@@ -197,6 +248,32 @@ void cudnn_convolutional_setup(layer *l)
             2000000000,
             &l->bf_algo);
 }
+void cudnn_convolutional_setup32(layer* l)
+{
+    //CONVPROP* prop = (CONVPROP*)l->layerExtraProperty;
+    cudnnStatus_t stat;
+    stat = cudnnSetTensor4dDescriptor(l->srcTensorDesc, CUDNN_TENSOR_NCHW, CUDNN_DATA_FLOAT, l->batch, l->c, l->h, l->w); checkcudnnerror(stat);
+    stat = cudnnSetTensor4dDescriptor(l->dstTensorDesc, CUDNN_TENSOR_NCHW, CUDNN_DATA_FLOAT, l->batch, l->out_c, l->out_h, l->out_w); checkcudnnerror(stat);
+    
+    /*stat = cudnnSetTensor4dDescriptor(prop->biasTensor, CUDNN_TENSOR_NCHW, CUDNN_DATA_FLOAT, l->batch, l->out_c, 1, 1); 
+    checkcudnnerror(stat);
+    stat = cudnnSetActivationDescriptor(prop->actv, CUDNN_ACTIVATION_IDENTITY, CUDNN_NOT_PROPAGATE_NAN, 0); 
+    checkcudnnerror(stat);*/
+
+    stat = cudnnSetFilter4dDescriptor(l->weightDesc, CUDNN_DATA_FLOAT, CUDNN_TENSOR_NCHW, l->n, l->c / l->groups, l->size, l->size); checkcudnnerror(stat);
+    stat = cudnnSetConvolution2dDescriptor(l->convDesc, l->pad, l->pad, l->stride, l->stride, 1, 1, CUDNN_CROSS_CORRELATION, CUDNN_DATA_FLOAT); checkcudnnerror(stat);
+    stat = cudnnSetConvolutionGroupCount(l->convDesc, l->groups); checkcudnnerror(stat);
+    stat = cudnnGetConvolutionForwardAlgorithm(cudnn_handle(),
+        l->srcTensorDesc,
+        l->weightDesc,
+        l->convDesc,
+        l->dstTensorDesc,
+        CUDNN_CONVOLUTION_FWD_SPECIFY_WORKSPACE_LIMIT,
+        2000000000,
+        &l->fw_algo);
+    checkcudnnerror(stat);
+    //l->fw_algo = CUDNN_CONVOLUTION_FWD_ALGO_IMPLICIT_PRECOMP_GEMM;
+}
 #endif
 #endif
 convolutional_layer make_convolutional_layer_CV_METHOD(CONVOLUTION_METHOD method, int batch, int h, int w, int c, int n, int groups, int size, int stride,
@@ -225,7 +302,9 @@ convolutional_layer make_convolutional_layer_CV_PREDICT_FLOAT32(int batch, int h
     int i;
     convolutional_layer l = {0};
     l.type = CONVOLUTIONAL;
-
+    //l.layerExtraProperty = malloc(sizeof(CONVPROP));
+    //CONVPROP* layerProp = (CONVPROP*)l.layerExtraProperty;
+    //layerProp->iConvProPertySize = sizeof(CONVPROP);
     l.groups = groups;
     l.h = h;
     l.w = w;
@@ -306,7 +385,7 @@ convolutional_layer make_convolutional_layer_CV_PREDICT_FLOAT32(int batch, int h
     }
 
 #ifdef GPU
-    l.forward_gpu = forward_convolutional_layer_gpu;
+    l.forward_gpu = forward_convolutional_layer_gpu_predict_Float32;
     l.backward_gpu = backward_convolutional_layer_gpu;
     l.update_gpu = update_convolutional_layer_gpu;
 
@@ -354,19 +433,22 @@ convolutional_layer make_convolutional_layer_CV_PREDICT_FLOAT32(int batch, int h
             l.x_norm_gpu = 0;//CV//cuda_make_array(l.output, l.batch*out_h*out_w*n);
         }
 #ifdef CUDNN
-        cudnnStatus_t stat = cudnnCreateTensorDescriptor(&l.normTensorDesc);
-        stat = cudnnCreateTensorDescriptor(&l.srcTensorDesc);
-        stat = cudnnCreateTensorDescriptor(&l.dstTensorDesc);
-        stat = cudnnCreateFilterDescriptor(&l.weightDesc);
-        stat = cudnnCreateTensorDescriptor(&l.dsrcTensorDesc);
-        stat = cudnnCreateTensorDescriptor(&l.ddstTensorDesc);
-        stat = cudnnCreateFilterDescriptor(&l.dweightDesc);
-        stat = cudnnCreateConvolutionDescriptor(&l.convDesc);
-        cudnn_convolutional_setup(&l);
+        cudnnStatus_t stat = cudnnCreateTensorDescriptor(&l.normTensorDesc); checkcudnnerror(stat);
+        stat = cudnnCreateTensorDescriptor(&l.srcTensorDesc); checkcudnnerror(stat);
+        stat = cudnnCreateTensorDescriptor(&l.dstTensorDesc); checkcudnnerror(stat);
+        stat = cudnnCreateFilterDescriptor(&l.weightDesc); checkcudnnerror(stat);
+        stat = cudnnCreateTensorDescriptor(&l.dsrcTensorDesc); checkcudnnerror(stat);
+        stat = cudnnCreateTensorDescriptor(&l.ddstTensorDesc); checkcudnnerror(stat);
+        stat = cudnnCreateFilterDescriptor(&l.dweightDesc); checkcudnnerror(stat);
+        stat = cudnnCreateConvolutionDescriptor(&l.convDesc); checkcudnnerror(stat);
+        //stat = cudnnCreateTensorDescriptor(&(layerProp->biasTensor)); checkcudnnerror(stat);
+        //stat = cudnnCreateActivationDescriptor(&(layerProp->actv)); checkcudnnerror(stat);
+
+        cudnn_convolutional_setup32(&l);
 #endif
     }
 #endif
-    l.workspace_size = get_workspace_size(l);
+    l.workspace_size = get_workspace_size32(l);
     l.activation = activation;
 
     fprintf(stderr, "conv  %5d %2d x%2d /%2d  %4d x%4d x%4d   ->  %4d x%4d x%4d  %5.3f BFLOPs\n", n, size, size, stride, w, h, c, l.out_w, l.out_h, l.out_c, (2.0 * l.n * l.size*l.size*l.c/l.groups * l.out_h*l.out_w)/1000000000.);
@@ -377,8 +459,7 @@ convolutional_layer make_convolutional_layer(int batch, int h, int w, int c, int
 {
     int i;
     convolutional_layer l = {0};
-    l.type = CONVOLUTIONAL;
-
+    l.type = CONVOLUTIONAL;    
     l.groups = groups;
     l.h = h;
     l.w = w;

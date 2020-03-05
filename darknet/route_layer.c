@@ -144,7 +144,7 @@ void forward_route_layer_gpu(const route_layer l, network net)
         float *input = net.layers[index].output_gpu;
         int input_size = l.input_sizes[i];
         for(j = 0; j < l.batch; ++j){
-            copy_gpu(input_size, input + j*input_size, 1, l.output_gpu + offset + j*l.outputs, 1);
+            simple_copy_ongpu(input_size, input + j*input_size, l.output_gpu + offset + j*l.outputs);
         }
         offset += input_size;
     }

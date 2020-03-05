@@ -1,37 +1,4 @@
 ﻿  D:\Data\darknetAll\darknetVsPro\pthreads\bin\pthreadGC2.dll
   D:\Data\darknetAll\darknetVsPro\pthreads\bin\pthreadVC2.dll
   已复制         2 个文件。
-  convolutional_layer.c
-C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(25,37): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(26,38): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(24,1): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(35,72): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(36,73): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(38,81): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(39,103): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(40,69): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(41,63): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(42,68): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(43,76): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(46,36): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(47,40): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(48,23): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(53,28): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(54,36): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(60,16): warning C4305: “return”: 从“double”到“float”截断
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(72,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(80,56): warning C4244: “return”: 从“int”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(82,96): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(83,67): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(84,59): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(85,66): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\activations.h(87,80): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\convolutional_layer.c(36,46): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\convolutional_layer.c(49,44): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\convolutional_layer.c(59,44): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\convolutional_layer.c(252,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\convolutional_layer.c(405,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\convolutional_layer.c(534,1): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-D:\Data\darknetAll\darknetVsPro\darknet\convolutional_layer.c(646,1): warning C4028: 形参 1 与声明不同
   darknet.vcxproj -> D:\Data\darknetAll\darknetVsPro\x64\Debug\darknet.dll

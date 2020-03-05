@@ -11,8 +11,13 @@ cudnnDataType_t GetDataType() { return CUDNN_DATA_HALF; }
 void cudnn_convolutional_setup16(layer* l)
 {
     cudnnDataType_t dataype=GetDataType();
+    //CONVPROP* prop=(CONVPROP *)l->layerExtraProperty;
     cudnnStatus_t stat = cudnnSetTensor4dDescriptor(l->srcTensorDesc, CUDNN_TENSOR_NCHW, dataype, l->batch, l->c, l->h, l->w); checkcudnnerror(stat);
     stat = cudnnSetTensor4dDescriptor(l->dstTensorDesc, CUDNN_TENSOR_NCHW, dataype, l->batch, l->out_c, l->out_h, l->out_w); checkcudnnerror(stat);
+    /*stat = cudnnSetTensor4dDescriptor(prop->biasTensor, CUDNN_TENSOR_NCHW, dataype, l->batch, l->out_c, 1, 1);
+    checkcudnnerror(stat);
+    stat = cudnnSetActivationDescriptor(prop->actv, CUDNN_ACTIVATION_IDENTITY, CUDNN_NOT_PROPAGATE_NAN, 0);
+    checkcudnnerror(stat);*/
     stat = cudnnSetFilter4dDescriptor(l->weightDesc, dataype, CUDNN_TENSOR_NCHW, l->n, l->c / l->groups, l->size, l->size); checkcudnnerror(stat);
     cudnnDataType_t convType=CUDNN_DATA_FLOAT;
     if (GetConvolutionPredictMethod() == FLOAT16_TRUE_PREDICT) convType = CUDNN_DATA_HALF;
@@ -50,7 +55,9 @@ convolutional_layer make_convolutional_layer_CV_PREDICT_FLOAT16(CLARE_CONV_PARAM
     int i;
     convolutional_layer l = { 0 };
     l.type = CONVOLUTIONAL;
-
+    /*l.layerExtraProperty = malloc(sizeof(CONVPROP));
+    CONVPROP* layerProp = (CONVPROP*)l.layerExtraProperty;
+    layerProp->iConvProPertySize = sizeof(CONVPROP);*/
     l.groups = groups;
     l.h = h;
     l.w = w;
@@ -185,6 +192,9 @@ convolutional_layer make_convolutional_layer_CV_PREDICT_FLOAT16(CLARE_CONV_PARAM
         stat = cudnnCreateTensorDescriptor(&l.dstTensorDesc); checkcudnnerror(stat);
         stat = cudnnCreateFilterDescriptor(&l.weightDesc); checkcudnnerror(stat);
         stat = cudnnCreateConvolutionDescriptor(&l.convDesc); checkcudnnerror(stat);
+        //stat = cudnnCreateTensorDescriptor(&(layerProp->biasTensor)); checkcudnnerror(stat);
+        //stat = cudnnCreateActivationDescriptor(&(layerProp->actv)); checkcudnnerror(stat);
+
         cudnn_convolutional_setup16(&l);
 #endif
     }

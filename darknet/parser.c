@@ -1291,8 +1291,9 @@ void load_weights(network *net, char *filename)
     load_weights_upto(net, filename, 0, net->n);
 }
 
-void load_convolutional_weights_CV(layer l, FILE* fp)
+void load_convolutional_weights_CV(network *net,int ilayer, FILE* fp)
 {
+    layer l = net->layers[ilayer];
     if (l.binary) {
         //load_convolutional_weights_binary(l, fp);
         //return;
@@ -1332,6 +1333,8 @@ void load_convolutional_weights_CV(layer l, FILE* fp)
         }
     }
     fread(l.weights, sizeof(float), num, fp);
+    FuseScaleBNClayer(net, ilayer);
+    l = net->layers[ilayer];
     //if(l.c == 3) scal_cpu(num, 1./256, l.weights, 1);
     if (l.flipped) {
         transpose_matrix(l.weights, l.c * l.size * l.size, l.n);
@@ -1376,7 +1379,7 @@ void load_weights_predict_upto(network* net, char* filename, int start, int cuto
         layer l = net->layers[i];
         if (l.dontload) continue;
         if (l.type == CONVOLUTIONAL || l.type == DECONVOLUTIONAL) {
-            load_convolutional_weights_CV(l, fp);
+            load_convolutional_weights_CV(net,i, fp);
         }
         if (l.type == CONNECTED) {
             load_connected_weights(l, fp, transpose);

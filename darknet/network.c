@@ -773,10 +773,10 @@ float *network_output(network *net)
 void forward_network_gpu(network* netp)
 {
     network net = *netp;
-    cuda_set_device(net.gpu_index);
-    cuda_push_array(net.input_gpu, net.input, net.inputs * net.batch);
+    if(net.gpu_index>=0) cuda_set_device(net.gpu_index);
+    cuda_push_array_async(net.input_gpu, net.input, net.inputs * net.batch);
     if (net.truth) {
-        cuda_push_array(net.truth_gpu, net.truth, net.truths * net.batch);
+        cuda_push_array_async(net.truth_gpu, net.truth, net.truths * net.batch);
     }
 
     int i;
@@ -1138,7 +1138,8 @@ float train_networks(network **nets, int n, data d, int interval)
 void pull_network_output(network *net)
 {
     layer l = get_network_output_layer(net);
-    cuda_pull_array(l.output_gpu, l.output, l.outputs*l.batch);
+    if(l.type!=YOLO) cuda_pull_array_async(l.output_gpu, l.output, l.outputs*l.batch);
+    check_error(cudaStreamSynchronize(get_cuda_stream()));
 }
 
 #endif

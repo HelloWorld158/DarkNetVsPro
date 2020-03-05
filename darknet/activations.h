@@ -17,6 +17,7 @@ void activate_array(float *x, const int n, const ACTIVATION a);
 #ifdef GPU
 void activate_array_gpu(float *x, int n, ACTIVATION a);
 void gradient_array_gpu(float *x, int n, ACTIVATION a, float *delta);
+void activate_array_ongpu(float* x, int n, ACTIVATION a);
 #endif
 
 static inline float stair_activate(float x)

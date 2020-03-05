@@ -168,6 +168,9 @@
     <ClInclude Include="darknet.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -333,5 +336,10 @@
     <CudaCompile Include="im2col_kernels.cu" />
     <CudaCompile Include="maxpool_layer_kernels.cu" />
     <CudaCompile Include="convolutional_half_layer_kernels.cu" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="darknet.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

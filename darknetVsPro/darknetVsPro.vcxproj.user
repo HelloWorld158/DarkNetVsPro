@@ -8,4 +8,7 @@
     <LocalDebuggerCommandArguments>yolo test ..\Detection\yolov3.cfg ..\Detection\yolov3.weights ..\Detection\abc.jpg</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
+  <PropertyGroup>
+    <ShowAllFiles>false</ShowAllFiles>
+  </PropertyGroup>
 </Project>

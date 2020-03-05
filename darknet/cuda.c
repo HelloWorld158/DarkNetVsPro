@@ -10,6 +10,10 @@ DARKNET_API int gpu_index = 0;
 #include <stdlib.h>
 #include <time.h>
 
+int get_number_of_blocks(int array_size, int block_size)
+{
+    return array_size / block_size + ((array_size % block_size > 0) ? 1 : 0);
+}
 void cuda_set_device(int n)
 {
     gpu_index = n;
@@ -25,12 +29,13 @@ int cuda_get_device()
     return n;
 }
 
-void check_error(cudaError_t status)
+void check_error_extend(cudaError_t status, const char* file, int line, const char* date_time)
 {
     //cudaDeviceSynchronize();
-    cudaError_t status2 = cudaGetLastError();
+    cudaError_t statusbackup = cudaGetLastError();
     if (status != cudaSuccess)
     {   
+        printf("CUDA status Error: file: %s() : line: %d : build time: %s \n", file, line, date_time);
         const char *s = cudaGetErrorString(status);
         char buffer[256];
         printf("CUDA Error: %s\n", s);
@@ -38,9 +43,10 @@ void check_error(cudaError_t status)
         snprintf(buffer, 256, "CUDA Error: %s", s);
         error(buffer);
     } 
-    if (status2 != cudaSuccess)
+    if (statusbackup != cudaSuccess)
     {   
-        const char *s = cudaGetErrorString(status);
+        printf("CUDA status Error: file: %s() : line: %d : build time: %s \n", file, line, date_time);
+        const char *s = cudaGetErrorString(statusbackup);
         char buffer[256];
         printf("CUDA Error Prev: %s\n", s);
         assert(0);
@@ -74,6 +80,47 @@ dim3 cuda_gridsize(size_t n){
     return d;
 }
 
+static cudaStream_t streamsArray[16];    // cudaStreamSynchronize( get_cuda_stream() );
+static int streamInit[16] = { 0 };
+
+cudaStream_t get_cuda_stream() {
+    int i = cuda_get_device();
+    if (!streamInit[i]) {
+        //printf("Create CUDA-stream \n");
+        cudaError_t status = cudaStreamCreate(&streamsArray[i]);
+        //cudaError_t status = cudaStreamCreateWithFlags(&streamsArray[i], cudaStreamNonBlocking);
+        if (status != cudaSuccess) {
+            printf(" cudaStreamCreate error: %d \n", status);
+            const char* s = cudaGetErrorString(status);
+            printf("CUDA Error: %s\n", s);
+            status = cudaStreamCreateWithFlags(&streamsArray[i], cudaStreamDefault);
+            check_error(status);
+        }
+        streamInit[i] = 1;
+    }
+    return streamsArray[i];
+}
+
+static cudaStream_t streamsArrayMem[16];    // cudaStreamSynchronize( get_cuda_memcpy_stream() );
+static int streamInitMem[16] = { 0 };
+
+cudaStream_t get_cuda_memcpy_stream() {
+    int i = cuda_get_device();
+    if (!streamInitMem[i]) {
+        cudaError_t status = cudaStreamCreate(&streamsArrayMem[i]);
+        //cudaError_t status = cudaStreamCreateWithFlags(&streamsArray2[i], cudaStreamNonBlocking);
+        if (status != cudaSuccess) {
+            printf(" cudaStreamCreate-Memcpy error: %d \n", status);
+            const char* s = cudaGetErrorString(status);
+            printf("CUDA Error: %s\n", s);
+            status = cudaStreamCreateWithFlags(&streamsArrayMem[i], cudaStreamDefault);
+            check_error(status);
+        }
+        streamInitMem[i] = 1;
+    }
+    return streamsArrayMem[i];
+}
+
 #ifdef CUDNN
 cudnnHandle_t cudnn_handle()
 {
@@ -83,6 +130,8 @@ cudnnHandle_t cudnn_handle()
     if(!init[i]) {
         cudnnCreate(&handle[i]);
         init[i] = 1;
+        cudnnStatus_t status = cudnnSetStream(handle[i], get_cuda_stream());
+        checkcudnnerror(status);
     }
     return handle[i];
 }
@@ -204,10 +253,24 @@ void cuda_push_array(float *x_gpu, float *x, size_t n)
     check_error(status);
 }
 
+void cuda_push_array_async(float* x_gpu, float* x, size_t n)
+{
+    size_t size = sizeof(float) * n;
+    cudaError_t status = cudaMemcpyAsync(x_gpu, x, size, cudaMemcpyHostToDevice,get_cuda_stream());
+    check_error(status);
+}
+
 void cuda_pull_array(float *x_gpu, float *x, size_t n)
 {
     size_t size = sizeof(float)*n;
     cudaError_t status = cudaMemcpy(x, x_gpu, size, cudaMemcpyDeviceToHost);
+    check_error(status);
+}
+
+void cuda_pull_array_async(float* x_gpu, float* x, size_t n)
+{
+    size_t size = sizeof(float) * n;
+    cudaError_t status = cudaMemcpyAsync(x, x_gpu, size, cudaMemcpyDefault, get_cuda_stream());
     check_error(status);
 }
 

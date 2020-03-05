@@ -13,6 +13,7 @@ void backward_activation_layer(layer l, network net);
 #ifdef GPU
 void forward_activation_layer_gpu(layer l, network net);
 void backward_activation_layer_gpu(layer l, network net);
+void activate_array_ongpu(float* x, int n, ACTIVATION a);
 #endif
 
 #endif

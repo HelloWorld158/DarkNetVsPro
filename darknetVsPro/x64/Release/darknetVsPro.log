@@ -21,7 +21,7 @@ D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(206,18): warning C4244: “�
 D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(227,1): warning C4305: “初始化”: 从“double”到“float”截断
 D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(300,1): warning C4305: “初始化”: 从“double”到“float”截断
 D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(297,13): warning C4101: “time”: 未引用的局部变量
-D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(376,60): warning C4305: “函数”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(379,60): warning C4305: “函数”: 从“double”到“float”截断
   正在生成代码
   2 of 181 functions ( 1.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation

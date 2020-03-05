@@ -43,6 +43,12 @@
     <ClCompile Include="writing.c" />
     <ClCompile Include="yolo.c" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="darknetVsPro.rc" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{B43EAA9A-75FF-473E-B554-3770E5CC4D2A}</ProjectGuid>

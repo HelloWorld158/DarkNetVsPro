@@ -129,7 +129,8 @@ struct layer;
 typedef struct layer layer;
 
 struct layer{
-    int iCurNetDex;
+    void *layerdata;
+    void* layerExtraProperty;
     LAYER_TYPE type;
     ACTIVATION activation;
     COST_TYPE cost_type;
@@ -655,8 +656,10 @@ DARKNET_API float *cuda_make_array(float *x, size_t n);
 DARKNET_API void* cuda_make_byte_array(size_t n);
 DARKNET_API short* cuda_make_short_array(size_t n);
 DARKNET_API void cuda_pull_array(float *x_gpu, float *x, size_t n);
+DARKNET_API void cuda_pull_array_async(float* x_gpu, float* x, size_t n);
 DARKNET_API float cuda_mag_array(float *x_gpu, size_t n);
 DARKNET_API void cuda_push_array(float *x_gpu, float *x, size_t n);
+DARKNET_API void cuda_push_array_async(float* x_gpu,float* x, size_t n);
 
 DARKNET_API void forward_network_gpu(network *net);
 DARKNET_API void backward_network_gpu(network *net);
