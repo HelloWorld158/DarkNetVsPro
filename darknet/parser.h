@@ -101,6 +101,7 @@ extern "C" {
     network *parse_network_train_cfg(char *filename);
     network NetWorkMemoryConfigerEx(size_params* paramss, section* s, list* options, list *sections,
         network* nets,node* n);
+    void FillNetWorkData(network* net);
 #ifdef __cplusplus
 }
 #endif

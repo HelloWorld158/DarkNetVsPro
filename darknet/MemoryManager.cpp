@@ -17,7 +17,11 @@
 using namespace std;
 vector<float*> cpuBuffer;
 vector<float*> gpuBuffer;
-
+vector<int> memCode;
+vector<int> iMemCodeMxSize;
+vector<int> iLayerUseSize;
+vector< vector<int> > fulgraph, fulbgraph;
+vector<LAYERDATA> layerDatas;
 
 void GetLayersFromRoute(list* options,vector< vector<int> >& backGraph)
 {    
@@ -543,42 +547,28 @@ void RequestFullGraph(vector< vector<int> >& graph, vector< vector<int> >& bgrap
         }
     }
 }
-void ArrangeLayer(size_params& params,node* n,network& net,int& count
- ,size_t& workspace_size,size_t& max_inputs ,size_t& max_outputs, int& avg_outputs
-    ,float& bflops)
+void GiveMemoryFromSize(network& net,vector<int>& allSize)
 {
-    vector< vector<int> > graph,bgraph,fulgraph,fulbgraph;
-    vector<LAYER_TYPE> layerType;
-    GetGraph(graph, bgraph, n,layerType);   
-   
-    vector<int> allSize;
-    GenerateNetWork(params, n, net, count, workspace_size, max_inputs,
-        max_outputs, avg_outputs, bflops, allSize);
-    //assert(graph.size() == net.n);    
-    vector<int> memCode(graph.size());
-    int iMemsize=EncodeMemory(memCode, graph, bgraph,net);
-    int iSize = -1;
-    RequestFullGraph(graph, bgraph, fulgraph,fulbgraph,net);
-    //GenerateLayerData(net, fulgraph, fulbgraph);
-    for (int cnum = 0; cnum < graph.size(); cnum++)
+    for (int cnum = 0; cnum < fulgraph.size(); cnum++)
     {
         if (fulgraph[cnum].size() == 0)
         {
             memCode[cnum] = -1;
         }
     }
-    vector<int> iMaxSize(iMemsize);
+    int iMemsize = iMemCodeMxSize.size();
+    vector<int>& iMaxSize = iMemCodeMxSize;
     for (int cnum = 0; cnum < iMemsize; cnum++) iMaxSize[cnum] = -1;
-    for (int cnum = 0; cnum < graph.size(); cnum++)
+    for (int cnum = 0; cnum < fulgraph.size(); cnum++)
     {
         //printf("%d\n", cnum);
-        if (allSize[cnum]==-1||memCode[cnum]<0)
+        if (allSize[cnum] == -1 || memCode[cnum] < 0)
         {
-            if(allSize[cnum]>0) ArrangeMemory(net, cnum, allSize);
+            if (allSize[cnum] > 0) ArrangeMemory(net, cnum, allSize);
         }
         else
         {
-            iMaxSize[memCode[cnum]] = iMaxSize[memCode[cnum]]>allSize[cnum]? iMaxSize[memCode[cnum]]:allSize[cnum];
+            iMaxSize[memCode[cnum]] = iMaxSize[memCode[cnum]] > allSize[cnum] ? iMaxSize[memCode[cnum]] : allSize[cnum];
         }
     }
     for (int cnum = 0; cnum < iMaxSize.size(); cnum++)
@@ -599,8 +589,8 @@ void ArrangeLayer(size_params& params,node* n,network& net,int& count
     int iLoop = 0;
     for (int cnum = 0; cnum < memCode.size(); cnum++)
     {
-        if ( allSize[cnum] == -1||memCode[cnum]<0)
-        {            
+        if (allSize[cnum] == -1 || memCode[cnum] < 0)
+        {
             continue;
         }
         net.layers[cnum].output = cpuBuffer[memCode[cnum]];
@@ -608,6 +598,29 @@ void ArrangeLayer(size_params& params,node* n,network& net,int& count
         net.layers[cnum].output_gpu = gpuBuffer[memCode[cnum]];
 #endif
     }
+}
+void ArrangeLayer(size_params& params,node* n,network& net,int& count
+ ,size_t& workspace_size,size_t& max_inputs ,size_t& max_outputs, int& avg_outputs
+    ,float& bflops)
+{
+    vector< vector<int> > graph,bgraph;
+    vector<LAYER_TYPE> layerType;
+    GetGraph(graph, bgraph, n,layerType);   
+   
+    vector<int> allSize;
+    GenerateNetWork(params, n, net, count, workspace_size, max_inputs,
+        max_outputs, avg_outputs, bflops, allSize);
+    //assert(graph.size() == net.n);    
+    memCode.resize(graph.size());
+    int iMemsize=EncodeMemory(memCode, graph, bgraph,net);
+    int iSize = -1;
+    fulgraph.clear();
+    fulbgraph.clear();
+    RequestFullGraph(graph, bgraph, fulgraph,fulbgraph,net);
+    //GenerateLayerData(net, fulgraph, fulbgraph);
+    iMemCodeMxSize.resize(iMemsize);
+    GiveMemoryFromSize(net, allSize);
+    allSize.swap(iLayerUseSize);
     //ReArrangeShortCutLayer(net);
 }
 void FreeMenageMemory()
@@ -663,5 +676,60 @@ network NetWorkMemoryConfigerEx(size_params* paramss, section* s, list* options,
 #endif
     }
     return net;
+}
+int DealNetLayer(network *net)
+{
+    int bRetFlag=0;
+    int bRet = DealConvlutionFinalStep(net, &iLayerUseSize[0]);
+    bRetFlag = bRet>bRetFlag? bRet:bRetFlag;
+#ifdef MEMORYDEBUG
+    for (int cnum = 0; cnum < fulgraph.size(); cnum++)
+    {
+        if (net->layers[cnum].type != CONVOLUTIONAL) continue;
+        LAYERDATA* data =(LAYERDATA *) net->layers[cnum].layerdata;
+        CONVPROP* prop = (CONVPROP*)data->layerData;
+        printf("%dconv:%d   %d   %d %d\n", cnum,fulbgraph[cnum].size(), fulgraph[cnum].size(),  prop->bIn32, prop->bOut32);
+    }
+#endif
+    return bRetFlag;
+}
+void FillNetWorkData(network* net)
+{
+    if (GetConvolutionPredictMethod() == FLOAT32_PREDICT) return;
+    layerDatas.clear();
+    layerDatas.resize(net->n);
+    for (int i = 0; i < net->n; i++)
+    {
+        layerDatas[i].iNetWorkIndex = i;
+        layerDatas[i].net = net;
+        layerDatas[i].layerData = net->layers[i].layerdata;
+        net->layers[i].layerdata = &layerDatas[i];
+        if (fulbgraph[i].size())
+        {
+            layerDatas[i].iConnectBefore = &fulbgraph[i][0];             
+        }
+        layerDatas[i].iConnectBefSize = fulbgraph[i].size();
+        if (fulgraph[i].size())
+        {
+            layerDatas[i].iConnectAfter = &fulgraph[i][0];
+        }
+        layerDatas[i].iConnectAfterSize = fulgraph[i].size();
+    }
+    vector<int> allSize;
+    int bRefresh = DealNetLayer(net);
+    if (bRefresh)
+    {
+        for (int cnum = 0; cnum <cpuBuffer.size(); cnum++)
+        {
+            free(cpuBuffer[cnum]);
+#ifdef GPU
+            cuda_free(gpuBuffer[cnum]);
+            DecGenerateMemory(iMemCodeMxSize[cnum] * sizeof(float));
+#endif
+        }
+        cpuBuffer.clear();
+        gpuBuffer.clear();
+        GiveMemoryFromSize(*net, iLayerUseSize);
+    }
 }
 #endif

@@ -1,4 +1,98 @@
 ﻿  D:\Data\darknetAll\darknetVsPro\pthreads\bin\pthreadGC2.dll
   D:\Data\darknetAll\darknetVsPro\pthreads\bin\pthreadVC2.dll
   已复制         2 个文件。
+  Compiling CUDA source file convolutional_half_layer_kernels.cu...
+  
+  D:\Data\darknetAll\darknetVsPro\darknet>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin\nvcc.exe" -gencode=arch=compute_35,code=\"sm_35,compute_35\" --use-local-env -ccbin "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.24.28314\bin\HostX86\x64" -x cu  -ID:\Data\darknetAll\darknetVsPro\pthreads\include -ID:\Data\darknetAll\darknetVsPro\stb\include -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include"  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static  -g   -D_DEBUG -DDARKNET_EXPORTS -D_WINDOWS -D_USRDLL -DHAVE_STRUCT_TIMESPEC -D_CRT_SECURE_NO_WARNINGS -D_CRT_NONSTDC_NO_DEPRECATE -DGPU -DCUDNN -D_CRT_SECURE_NO_DEPRECATE -DMEMORYDEBUG -D_WINDLL -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /Fdx64\Debug\vc142.pdb /FS /Zi /RTC1 /MDd " -o x64\Debug\convolutional_half_layer_kernels.cu.obj "D:\Data\darknetAll\darknetVsPro\darknet\convolutional_half_layer_kernels.cu" 
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(825): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(1760): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(2622): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(3461): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(4404): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(5302): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(6213): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(7094): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(7893): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt/device_functions.h(1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt/device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt/device_functions.h(1629): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\device_double_functions.h(1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\sm_20_intrinsics.h(1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\sm_20_intrinsics.h(926): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:/Data/darknetAll/darknetVsPro/darknet/convolutional_half_layer_kernels.cu(280): warning : conversion from pointer to smaller integer
+  
+D:/Data/darknetAll/darknetVsPro/darknet/convolutional_half_layer_kernels.cu(280): warning : conversion from pointer to smaller integer
+  
+D:/Data/darknetAll/darknetVsPro/darknet/convolutional_half_layer_kernels.cu(281): warning : conversion from pointer to smaller integer
+  
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(825): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(1760): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(2622): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(3461): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(4404): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(5302): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(6213): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(7094): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(7893): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt/device_functions.h(1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt/device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt/device_functions.h(1629): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\device_double_functions.h(1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\sm_20_intrinsics.h(1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\sm_20_intrinsics.h(926): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\cuda_fp16.h(1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:/Data/darknetAll/darknetVsPro/darknet/convolutional_half_layer_kernels.cu(280): warning : conversion from pointer to smaller integer
+  
+D:/Data/darknetAll/darknetVsPro/darknet/convolutional_half_layer_kernels.cu(280): warning : conversion from pointer to smaller integer
+  
+D:/Data/darknetAll/darknetVsPro/darknet/convolutional_half_layer_kernels.cu(281): warning : conversion from pointer to smaller integer
+  
+  convolutional_half_layer_kernels.cu
+D:\Data\darknetAll\darknetVsPro\darknet\cuda.h(20): warning C4190: “cuda_gridsize”有指定的 C 链接，但返回了与 C 不兼容的 UDT“dim3”
+  C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\vector_types.h(430): note: 参见“dim3”的声明
+D:\Data\darknetAll\darknetVsPro\darknet\activations.h(25): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknet\activations.h(26): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknet\activations.h(27): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknet\activations.h(36): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknet\activations.h(37): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknet\activations.h(40): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknet\activations.h(41): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknet\activations.h(42): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknet\activations.h(43): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknet\activations.h(47): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknet\activations.h(48): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknet\activations.h(49): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknet\activations.h(54): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknet\activations.h(55): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknet\activations.h(61): warning C4305: “return”: 从“double”到“float”截断
+D:\Data\darknetAll\darknetVsPro\darknet\activations.h(73): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknet\activations.h(83): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknet\activations.h(84): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknet\activations.h(85): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknet\activations.h(86): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+D:\Data\darknetAll\darknetVsPro\darknet\activations.h(88): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+D:/Data/darknetAll/darknetVsPro/darknet/convolutional_half_layer_kernels.cu(28): warning C4838: 从“int”转换到“size_t”需要收缩转换
+D:/Data/darknetAll/darknetVsPro/darknet/convolutional_half_layer_kernels.cu(28): warning C4838: 从“int”转换到“size_t”需要收缩转换
+D:/Data/darknetAll/darknetVsPro/darknet/convolutional_half_layer_kernels.cu(38): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:/Data/darknetAll/darknetVsPro/darknet/convolutional_half_layer_kernels.cu(280): warning C4311: “类型强制转换”: 从“float *”到“unsigned int”的指针截断
+D:/Data/darknetAll/darknetVsPro/darknet/convolutional_half_layer_kernels.cu(280): warning C4302: “类型强制转换”: 从“float *”到“unsigned int”截断
+D:/Data/darknetAll/darknetVsPro/darknet/convolutional_half_layer_kernels.cu(280): warning C4311: “类型强制转换”: 从“float *”到“unsigned int”的指针截断
+D:/Data/darknetAll/darknetVsPro/darknet/convolutional_half_layer_kernels.cu(280): warning C4302: “类型强制转换”: 从“float *”到“unsigned int”截断
+D:/Data/darknetAll/darknetVsPro/darknet/convolutional_half_layer_kernels.cu(281): warning C4311: “类型强制转换”: 从“float *”到“unsigned int”的指针截断
+D:/Data/darknetAll/darknetVsPro/darknet/convolutional_half_layer_kernels.cu(281): warning C4302: “类型强制转换”: 从“float *”到“unsigned int”截断
+D:/Data/darknetAll/darknetVsPro/darknet/convolutional_half_layer_kernels.cu(281): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 2 拥有了类型“size_t”
+  D:/Data/darknetAll/darknetVsPro/darknet/convolutional_half_layer_kernels.cu(281): note: 请考虑在格式字符串中使用“%zd”
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(825): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(1760): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(2622): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(3461): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(4404): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(5302): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(6213): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(7094): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include\crt\math_functions.h(7893): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   darknet.vcxproj -> D:\Data\darknetAll\darknetVsPro\x64\Debug\darknet.dll

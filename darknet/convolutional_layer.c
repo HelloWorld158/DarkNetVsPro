@@ -13,7 +13,103 @@
 #include "xnor_layer.h"
 #endif
 CONVOLUTION_METHOD trainMethod = FLOAT32_TRAIN;
-CONVOLUTION_METHOD predictMethod = FLOAT32_PREDICT;
+CONVOLUTION_METHOD predictMethod = FLOAT16_PREDICT;
+int GetPropConvolutionMethod(network* net,int ilayers)
+{
+    layer l = net->layers[ilayers];
+#ifdef GPUHALFABILITY
+    if (get_gpu_compute_capability(net->gpu_index) < 600)
+    {
+        LAYERDATA* data = (LAYERDATA*)net->layers[ilayers].layerdata;
+        CONVPROP* prop = (CONVPROP*)data->layerData;
+        prop->bIn32 = 1;
+        prop->bOut32 = 1;
+        prop->bUnSupportBias = 1;
+        prop->bUnSupportActivate = 1;
+        printf("Error gpu compute capability is :%d<600\n", get_gpu_compute_capability(net->gpu_index));
+        return 1;
+    }
+#else
+#ifndef TESTPROGRESS16
+    LAYERDATA* data = (LAYERDATA*)net->layers[ilayers].layerdata;
+    CONVPROP* prop = (CONVPROP*)data->layerData;
+    prop->bIn32 = 1;
+    prop->bOut32 = 1;
+    prop->bUnSupportBias = 1;
+    prop->bUnSupportActivate = 1;
+    return 1;
+#endif
+#endif
+    LAYERDATA* ndata = (LAYERDATA*)net->layers[ilayers].layerdata;
+    CONVPROP* nprop = (CONVPROP*)ndata->layerData;
+    nprop->bUnSupportBias = 0;
+    switch (l.activation)
+    {
+    case RELU:
+    case LINEAR:
+    case LEAKY:
+    case HARDTAN:
+    /*case SELU:
+    case LOGISTIC:
+    case TANH:*/
+        return 0;
+    }
+    return 1;
+}
+int DealConvlutionFinalStep(network* net, int* allsize)
+{
+    if (GetConvolutionPredictMethod() == FLOAT32_PREDICT) return 0;
+    for (int i = 0; i < net->n; i++)
+    {
+        if (net->layers[i].type != CONVOLUTIONAL) continue;
+        LAYERDATA* data = (LAYERDATA *)net->layers[i].layerdata;
+        CONVPROP* prop =(CONVPROP *) data->layerData;
+        prop->bIn32 = prop->bOut32 = 0;
+        layer l = net->layers[i];
+        if (l.xnor || l.binary) 
+        {
+            prop->bIn32 = prop->bOut32 = 1;
+        }
+        for (int cnum = 0; cnum < data->iConnectBefSize; cnum++)
+        {
+            if (net->layers[data->iConnectBefore[cnum]].type != CONVOLUTIONAL)
+            {
+                prop->bIn32 = 1;
+                break;
+            }
+            if (net->layers[data->iConnectBefore[cnum]].type == CONVOLUTIONAL)
+            {
+                LAYERDATA* tpData = (LAYERDATA*)net->layers[data->iConnectBefore[cnum]].layerdata;
+                CONVPROP* tpProp = (CONVPROP*)tpData->layerData;
+                if (tpProp->bOut32)
+                {
+                    prop->bIn32 = 1;
+                    break;
+                }
+            }
+        }
+        if (data->iConnectBefSize == 0)
+        {
+            prop->bIn32 = 1;
+        }
+        for (int cnum = 0; cnum < data->iConnectAfterSize; cnum++)
+        {
+            if (net->layers[data->iConnectAfter[cnum]].type != CONVOLUTIONAL)
+            {
+                prop->bOut32 = 1;
+                break;
+            }           
+        }    
+        prop->bUnSupportActivate = GetPropConvolutionMethod(net,i);
+        if (prop->bUnSupportActivate) prop->bOut32 = 1;
+        if (prop->bOut32==0)
+        {
+            allsize[i] /= 2;
+            allsize[i] += 1;
+        }
+    }
+    return 1;
+}
 void swap_binary(convolutional_layer *l)
 {
     float *swap = l->weights;
@@ -52,11 +148,12 @@ void FuseScaleBNClayer(network* net, int ilayers)
     free(l->rolling_mean);      l->rolling_mean = NULL;
     free(l->rolling_variance);  l->rolling_variance = NULL;   
 #ifdef GPU
-    cuda_free(l->scales_gpu);           l->scales_gpu = NULL;
-    cuda_free(l->mean_gpu);             l->mean_gpu = NULL;
-    cuda_free(l->variance_gpu);         l->variance_gpu = NULL;   
-    cuda_free(l->rolling_mean_gpu);     l->rolling_mean_gpu = NULL;
-    cuda_free(l->rolling_variance_gpu); l->rolling_variance_gpu = NULL;   
+    int ibasicSize = GetConvolutionPredictMethod()==FLOAT32_PREDICT? sizeof(float):sizeof(short);
+    cuda_free(l->scales_gpu);           l->scales_gpu = NULL; DecGenerateMemory(l->out_c * ibasicSize);
+    cuda_free(l->mean_gpu);             l->mean_gpu = NULL; DecGenerateMemory(l->out_c * ibasicSize);
+    cuda_free(l->variance_gpu);         l->variance_gpu = NULL;    DecGenerateMemory(l->out_c * ibasicSize);
+    cuda_free(l->rolling_mean_gpu);     l->rolling_mean_gpu = NULL; DecGenerateMemory(l->out_c * ibasicSize);
+    cuda_free(l->rolling_variance_gpu); l->rolling_variance_gpu = NULL;    DecGenerateMemory(l->out_c * ibasicSize);
 #endif
 }
 void binarize_weights(float *weights, int n, int size, float *binary)
@@ -268,9 +365,13 @@ void cudnn_convolutional_setup32(layer* l)
         l->weightDesc,
         l->convDesc,
         l->dstTensorDesc,
-        CUDNN_CONVOLUTION_FWD_SPECIFY_WORKSPACE_LIMIT,
+        CUDNN_CONVOLUTION_FWD_PREFER_FASTEST,//CUDNN_CONVOLUTION_FWD_SPECIFY_WORKSPACE_LIMIT,//
         2000000000,
         &l->fw_algo);
+        if (l->fw_algo < CUDNN_CONVOLUTION_FWD_ALGO_DIRECT) l->fw_algo = CUDNN_CONVOLUTION_FWD_ALGO_IMPLICIT_PRECOMP_GEMM;
+#ifdef ALGOUTPUT
+    printf("algori:%d\n", l->fw_algo);
+#endif
     checkcudnnerror(stat);
     //l->fw_algo = CUDNN_CONVOLUTION_FWD_ALGO_IMPLICIT_PRECOMP_GEMM;
 }

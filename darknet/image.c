@@ -254,6 +254,7 @@ void draw_detections(image im, detection *dets, int num, float thresh, char **na
                 if (class < 0) {
                     strcat(labelstr, names[j]);
                     class = j;
+                    //printf("i:%d,j:%d,prob:%f\n", i, j, dets[i].prob[j]);
                 } else {
                     strcat(labelstr, ", ");
                     strcat(labelstr, names[j]);

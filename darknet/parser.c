@@ -1342,7 +1342,7 @@ void load_convolutional_weights_CV(network *net,int ilayer, FILE* fp)
     //if (l.binary) binarize_weights(l.weights, l.n, l.c*l.size*l.size, l.weights);
 #ifdef GPU
     if (gpu_index >= 0) {
-        push_convolutional_layer_CV(l);
+        push_convolutional_layer_CV(&net->layers[ilayer]);
     }
 #endif
 }

@@ -9,11 +9,29 @@ DARKNET_API int gpu_index = 0;
 #include <assert.h>
 #include <stdlib.h>
 #include <time.h>
-
+int iMallocSize = 0;
 int get_number_of_blocks(int array_size, int block_size)
 {
     return array_size / block_size + ((array_size % block_size > 0) ? 1 : 0);
 }
+
+void DecGenerateMemory(int iSize)
+{
+#ifdef MEMORYDEBUG
+    iMallocSize -= iSize;
+    printf("CudaMemoryFree:%d,AllSize:%d\n", iSize, iMallocSize);
+#endif
+}
+int get_gpu_compute_capability(int i)
+{
+    typedef struct cudaDeviceProp cudaDeviceProp;
+    cudaDeviceProp prop;
+    cudaError_t status = cudaGetDeviceProperties(&prop, i);
+    check_error(status);
+    int cc = prop.major * 100 + prop.minor * 10;    // __CUDA_ARCH__ format
+    return cc;
+}
+
 void cuda_set_device(int n)
 {
     gpu_index = n;
@@ -150,9 +168,8 @@ cublasHandle_t blas_handle()
 }
 void CheckCudaMemory(int size)
 {
-    static int allBufferSize = 0;
-    allBufferSize += size;
-    printf("CudaMemoryAlloc:%d,AllSize:%d\n", size,allBufferSize);
+    iMallocSize += size;
+    printf("CudaMemoryAlloc:%d,AllSize:%d\n", size,iMallocSize);
 }
 void* cuda_make_byte_array(size_t n)
 {

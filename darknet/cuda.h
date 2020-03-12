@@ -8,7 +8,11 @@
 extern "C" {
 #endif
 	void check_error_extend(cudaError_t status, const char* file, int line, const char* date_time);
+#ifdef _WINDOWS
 #define check_error(s) check_error_extend(s, __FILE__ " : " __FUNCTION__, __LINE__,  __DATE__ " - " __TIME__ )
+#else
+#define check_error(s) check_error_extend(s,"linux", 0,  "noTime" )
+#endif
 	cublasHandle_t blas_handle();
 	int* cuda_make_int_array(int* x, size_t n);
 	void cuda_random(float* x_gpu, size_t n);
@@ -17,6 +21,8 @@ extern "C" {
 	cudaStream_t get_cuda_stream();
 	cudaStream_t get_cuda_memcpy_stream();
 	int get_number_of_blocks(int array_size, int block_size);
+	void DecGenerateMemory(int iSize);
+	int get_gpu_compute_capability(int i);
 #ifdef __cplusplus
 }
 #endif

@@ -28,11 +28,15 @@ elif(a=='Linux'):
 filecoco=imagedir+coconame
 coconame=filecoco
 meta = dn.load_meta(coconame.encode("UTF-8"))
-start=time.perf_counter()
+timeCount=0
 iCount=0
+alltimes=time.perf_counter()
 for i in imagelist:
     k=i.encode('UTF-8')
+    start=time.perf_counter()
     r = dn.detect(net, meta, k)
+    end=time.perf_counter()
+    timeCount+=end-start
     img=Image.open(k)
     idraw=ImageDraw.Draw(img)
     for j in r:
@@ -52,8 +56,8 @@ for i in imagelist:
     imgread.imsave(fullpath,t)
     print("finish:",iCount,"/",len(imagelist),end="\r",flush=True)
     iCount+=1
-end=time.perf_counter()
-print('\ntime consume:',end-start);
+print('\nAll Extract Time:',time.perf_counter()-alltimes)
+print('time consume:',timeCount);
 
 
     

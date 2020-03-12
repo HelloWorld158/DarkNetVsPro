@@ -410,20 +410,20 @@ void pull_convolutional_layer(layer l)
         cuda_pull_array(l.rolling_variance_gpu, l.rolling_variance, l.n);
     }
 }
-void push_convolutional_layer_CV(convolutional_layer l)
+void push_convolutional_layer_CV(convolutional_layer *l)
 {
-    cuda_push_array(l.weights_gpu, l.weights, l.nweights);
-    cuda_push_array(l.biases_gpu, l.biases, l.n);
+    cuda_push_array(l->weights_gpu, l->weights, l->nweights);
+    cuda_push_array(l->biases_gpu, l->biases, l->n);
     //cuda_push_array(l.weight_updates_gpu, l.weight_updates, l.nweights);
     //cuda_push_array(l.bias_updates_gpu, l.bias_updates, l.n);
-    if (l.batch_normalize) {
-        cuda_push_array(l.scales_gpu, l.scales, l.n);
-        cuda_push_array(l.rolling_mean_gpu, l.rolling_mean, l.n);
-        cuda_push_array(l.rolling_variance_gpu, l.rolling_variance, l.n);
+    if (l->batch_normalize) {
+        cuda_push_array(l->scales_gpu, l->scales, l->n);
+        cuda_push_array(l->rolling_mean_gpu, l->rolling_mean, l->n);
+        cuda_push_array(l->rolling_variance_gpu, l->rolling_variance, l->n);
     }
     DealGPUArrayBuffer_CV(l);
 }
-void DealGPUArrayBuffer_CV(convolutional_layer l)
+void DealGPUArrayBuffer_CV(convolutional_layer* l)
 {
     switch (GetConvolutionPredictMethod())
     {

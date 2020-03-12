@@ -23,8 +23,8 @@ D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(300,1): warning C4305: “�
 D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(297,13): warning C4101: “time”: 未引用的局部变量
 D:\Data\darknetAll\darknetVsPro\darknetVsPro\yolo.c(379,60): warning C4305: “函数”: 从“double”到“float”截断
   正在生成代码
-  2 of 181 functions ( 1.1%) were compiled, the rest were copied from previous compilation.
+  0 of 181 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    2 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   已完成代码的生成
   darknetVsPro.vcxproj -> D:\Data\darknetAll\darknetVsPro\x64\Release\darknetVsPro.exe

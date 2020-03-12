@@ -1,3 +1,4 @@
+
 #include "darknet.h"
 #include <time.h>
 char *voc_names[] = {"aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat", "chair", "cow", "diningtable", "dog", "horse", "motorbike", "person", "pottedplant", "sheep", "sofa", "train", "tvmonitor"};
@@ -347,7 +348,8 @@ void test_yolo(char *cfgfile, char *weightfile, char *filename, float thresh)
 #ifdef OUTPROGRESS
             printf("get net work predict end\n");
 #endif
-            if (nms) do_nms_sort(dets, nboxes, l.classes, nms);
+            //printf("nboxes:%d,classes:%d\n", nboxes, l.classes);
+            if (nms) do_nms_sort(dets, nboxes, 80, nms);
 #ifdef OUTPROGRESS
             printf("end net Work gvn\n");
 #endif

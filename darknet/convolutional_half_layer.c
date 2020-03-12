@@ -28,9 +28,14 @@ void cudnn_convolutional_setup16(layer* l)
         l->weightDesc,
         l->convDesc,
         l->dstTensorDesc,
-        CUDNN_CONVOLUTION_FWD_SPECIFY_WORKSPACE_LIMIT,
+        CUDNN_CONVOLUTION_FWD_PREFER_FASTEST,//CUDNN_CONVOLUTION_FWD_SPECIFY_WORKSPACE_LIMIT,
         2000000000,
-        &l->fw_algo); checkcudnnerror(stat);      
+        &l->fw_algo); 
+#ifdef ALGOUTPUT
+    printf("algori:%d\n", l->fw_algo);
+#endif
+    if (l->fw_algo < CUDNN_CONVOLUTION_FWD_ALGO_DIRECT) l->fw_algo = CUDNN_CONVOLUTION_FWD_ALGO_IMPLICIT_PRECOMP_GEMM;
+    checkcudnnerror(stat);      
 }
 static size_t get_workspace_size(layer l) {
 #ifdef CUDNN
@@ -55,9 +60,9 @@ convolutional_layer make_convolutional_layer_CV_PREDICT_FLOAT16(CLARE_CONV_PARAM
     int i;
     convolutional_layer l = { 0 };
     l.type = CONVOLUTIONAL;
-    /*l.layerExtraProperty = malloc(sizeof(CONVPROP));
-    CONVPROP* layerProp = (CONVPROP*)l.layerExtraProperty;
-    layerProp->iConvProPertySize = sizeof(CONVPROP);*/
+    l.layerdata = malloc(sizeof(CONVPROP));
+    CONVPROP* layerProp = (CONVPROP*)l.layerdata;
+    layerProp->iConvProPertySize = sizeof(CONVPROP);
     l.groups = groups;
     l.h = h;
     l.w = w;

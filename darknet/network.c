@@ -53,11 +53,12 @@ load_args get_base_args(network *net)
 network *load_network(char *cfg, char *weights, int clear)
 {
     network *net = parse_network_cfg(cfg);
+    FillNetWorkData(net);
     if(weights && weights[0] != 0){
         load_weights_predict(net, weights);
     }
     if(clear) (*net->seen) = 0;
-    //printf("layersize: %d", sizeof(layer));
+    //printf("layersize: %d", sizeof(layer));   
     return net;
 }
 network *load_network_train(char *cfg,char *weights,int clear)
@@ -349,8 +350,20 @@ void set_batch_network(network *net, int b)
 {
     net->batch = b;
     int i;
-    for(i = 0; i < net->n; ++i){
+#ifdef ALGOUTPUT
+	int allmethod[(int)CUDNN_CONVOLUTION_FWD_ALGO_COUNT] = { 0 };
+#endif
+    for(i = 0; i < net->n; ++i)
+    {
         net->layers[i].batch = b;
+#ifdef ALGOUTPUT
+		if (net->layers[i].type == CONVOLUTIONAL)
+		{
+			allmethod[(int)net->layers[i].fw_algo]++;
+			printf("convLayer:%d,filter:%d,%d,%d,%d,algo:%d\n", i,
+				net->layers[i].n, net->layers[i].c, net->layers[i].size, net->layers[i].size, net->layers[i].fw_algo);
+		}
+#endif
         continue;//CV
 #ifdef CUDNN
         if(net->layers[i].type == CONVOLUTIONAL){
@@ -363,6 +376,15 @@ void set_batch_network(network *net, int b)
         }
 #endif
     }
+    //
+#ifdef ALGOUTPUT
+	printf("Summary:");
+	for (int cnum = 0; cnum < (int)CUDNN_CONVOLUTION_FWD_ALGO_COUNT; cnum++)
+	{
+		printf("cnum%d:%d  ", cnum, allmethod[cnum]);
+	}
+	printf("\n");
+#endif
 }
 
 int resize_network(network *net, int w, int h)
@@ -590,7 +612,7 @@ float *network_predict_image(network *net, image im)
 {
     image imr = letterbox_image(im, net->w, net->h);
     //image imr = resize_image(im, net->w, net->h);
-    set_batch_network(net, 1);
+    //set_batch_network(net, 1);
     float *p = network_predict(net, imr.data);
     free_image(imr);
     return p;
